@@ -40,7 +40,8 @@ app.post('/data/:appid/:name/:hash',function(req,resp){
 			 	  'appid=' + appid + '\n' + 
 			 	  'name=' + name + '\n' + 
 			 	  'hash=' + hash + '\n' + 
-			 	   body;
+			 	  '----------------\n' + 
+			 	   body + '\n';
 		fs.appendFile(__dirname + '/log',log,function(err){
 
 		});
