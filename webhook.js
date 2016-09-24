@@ -11,6 +11,13 @@ var express = require('express'),
 var app = module.exports = express();
 app.enable('trust proxy');
 
+app.get('/ping',function(req,resp){
+	out.err(resp,200,{
+		'err':null,
+		'result':'pong'
+	});
+});
+
 app.post('/data/:appid/:name/:hash',function(req,resp){
 	var body = '';
     req.on('data', function(data) {
