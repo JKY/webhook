@@ -4,6 +4,7 @@
 var express = require('express'),
 	out = require('./lib/postio/util').out,
 	crypto = require('./lib/postio/crypto'),
+	fs = require('fs'),
 	color = require('colors');
 
 
@@ -35,6 +36,14 @@ app.post('/data/:appid/:name/:hash',function(req,resp){
 		console.log('hash=' + hash + '');
 		console.log('----------------');
 		console.log(body);
+		var log = '================\n' +
+			 	  'appid=' + appid + '\n' + 
+			 	  'name=' + name + '\n' + 
+			 	  'hash=' + hash + '\n' + 
+			 	   body;
+		fs.appendFile(__dirname + '/log',log,function(err){
+
+		});
     	out.err(resp,200,{
     		'err':null,
     		'result':null
